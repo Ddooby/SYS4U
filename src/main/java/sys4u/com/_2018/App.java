@@ -16,15 +16,16 @@ public class App
     {
         System.out.println( "Hello World!" );
         
-		//--- 유형_1)_중복 문자열 갯수 출력
+		//--- 주임_진급자_대상_유형_1)_중복 문자열 갯수 출력
 		printDuplicatedChars( );
         
-        //--- 유형_3)_중복 문자열 제거
+        //--- 주임_진급자_대상_유형_3)_중복 문자열 제거
         printDuplicatedCharsDel();
 
     }
     
-  //--- null 들어왔을때 exception 처리 필요
+    //--- 주임_진급자_대상_유형_1)_중복 문자열 갯수 출력
+    //--- null 들어왔을때 exception 처리 필요
     private static void printDuplicatedChars ( ) throws IllegalArgumentException {
     	
     	String line = "가나다라가나가다마바";
@@ -64,6 +65,7 @@ public class App
     	
     }
     
+    //--- 주임_진급자_대상_유형_3)_중복 문자열 제거
     //--- null 들어왔을때 exception 처리 필요
     private static void printDuplicatedCharsDel ( ) throws IllegalArgumentException {
     	
