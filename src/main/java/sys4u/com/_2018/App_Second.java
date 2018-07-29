@@ -45,12 +45,20 @@ public class App_Second
         //--- 대리_진급자_대상_유형_10) 스프링 프레임워크의 Transaction Manager와 Thread는 어떤 관계에 있는지 서술하라.
         print_Subjective_Question_10();
         
+        //--- 대리_진급자_대상_유형_11)_ORACLE의 SEQUENCE에 대해 설명하라, CURRVAL과 NEXTVAL의 차이에 대해 설명, CURRVAL을 얻기 위한 제한 조건을 설명하라
+        print_Subjective_Question_11();
+        
         //--- 대리_진급자_대상_유형_12) ST 메뉴 테이블의 전체 계층 정보를 출력하는 쿼리를 작성하라.
         print_Subjective_Question_12();
+        
+        //--- 대리_진급자_대상_유형_13)_SUM OVER 분석함수를 사용한 쿼리작성
+        print_Subjective_Question_13();
         
         //--- 대리_진급자_대상_유형_14) 2018 년도 주문실적을 월별로 출력하는 SQL을 작성하라. 단 주문일자 컬럼은 YYYYMMDD 의 VARCHAR2 형식이라고 가정한다.
         print_Subjective_Question_14();
         
+        //--- 대리_진급자_대상_유형_15)_RANK 함수를 사용한 쿼리작성
+        print_Subjective_Question_15();
     }
     
     
@@ -115,7 +123,11 @@ public class App_Second
     //--- 대리_진급자_대상_유형_7)_printStackTrace출력 안되는 이유
     public static void print_Subjective_Question_7 () {
     	/*
-    		
+    		1) 이유 :
+	    		printStackTrace는 에러 메세지의 발생 근원지를 찾아서 단계별로 에러를 출력한다
+				스택추적을 표시하면 잠재적인 보안 위험이 발생할 수 있다
+			2) catch한 Exception을 어떻게 처리해야 하는가?
+				적절한 방법으로 예외를 처리하면 StackTrace에 대해 더이상 신경쓰지 않아도 된다(좀 더 detail한 Exception)
     	*/
     }
     
@@ -159,6 +171,22 @@ public class App_Second
 			고로, 여러 Thread가 하나의 Transaction으로 묶이는것과 같은 Global Transaction(분산 트렌젝션)이 가능해지는 것이다.
 		 */
 	}
+	
+	//--- 대리_진급자_대상_유형_11)_ORACLE의 SEQUENCE에 대해 설명하라, CURRVAL과 NEXTVAL의 차이에 대해 설명, CURRVAL을 얻기 위한 제한 조건을 설명하라 
+	public static void print_Subjective_Question_11 () {
+		/*
+			SEQUENCE 란 :
+				- 오라클에서는 행을 구분하기 위해서 기본 키를 두고 있습니다.
+				- 테이블내의 유일한 숫자를 자동으로 생성하는 자동 번호 발생기 이므로 시퀀스를 기본 키로 사용하게 되면 
+				사용자의 부담을 줄일 수 있다
+			
+			CURRVAL과 NEXTVAL :
+				- 시퀀스의 현재 값을 알아내기 위해 CURRVAL을 사용하고, 다음값을 알아내기 위해 NEXTVAL을 사용합니다
+			
+			CURRVAL을 얻기위한 제한조건 :
+				- CURRVAL에 새로운 값을 할당하기 위해서는 NEXTVAL로 새로운 값을 생성해야 합니다
+		*/
+	}
 
 	//--- 대리_진급자_대상_유형_12) ST 메뉴 테이블의 전체 계층 정보를 출력하는 쿼리를 작성하라.
 	public static void print_Subjective_Question_12 () {
@@ -170,6 +198,13 @@ public class App_Second
 		 */
 	}
   
+	//--- 대리_진급자_대상_유형_13)_SUM OVER 분석함수를 사용한 쿼리작성 
+	public static void print_Subjective_Question_13 () {
+		/*
+			(작업예정)
+		*/
+	}
+	
 	//--- 대리_진급자_대상_유형_14) 2018 년도 주문실적을 월별로 출력하는 SQL을 작성하라. 단 주문일자 컬럼은 YYYYMMDD 의 VARCHAR2 형식이라고 가정한다.
 	public static void print_Subjective_Question_14 () {
 		/*
@@ -188,5 +223,12 @@ public class App_Second
 			 ,nvl(sum(case when substr(주문일자,5,2)='12' then 금액 end),0) as "12월"
 			from ord_order;
 		 */
+	}
+	
+	//--- 대리_진급자_대상_유형_15)_RANK 함수를 사용한 쿼리작성 
+	public static void print_Subjective_Question_15 () {
+		/*
+			(작업예정)
+		*/
 	}
 }
