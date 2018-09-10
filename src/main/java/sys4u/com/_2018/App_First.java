@@ -63,6 +63,7 @@ public class App_First
     	
     	String line = "가나다라가나가다마바";
     	Map<String, Object> returnMap = new HashMap<String, Object>();
+    	Map<String, Object> resultMap = new HashMap<String, Object>();
     	
     	try {
     		
@@ -77,13 +78,15 @@ public class App_First
 
         			if ( returnMap.containsKey(i) ) {
         				cnt = (int) returnMap.get(i) + 1;
+        				resultMap.put(i, cnt);
         			}
         			returnMap.put(i, cnt);
         		}
         	}
         	
         	//--- 결과
-        	System.out.println("## "+ returnMap.toString());
+        	//System.out.println("## "+ returnMap.toString());
+        	System.out.println("## "+ resultMap.toString());
         	
 		} catch (NullPointerException e) {
 			// TODO: handle exception
@@ -112,7 +115,7 @@ public class App_First
     		List<String> lineList = Arrays.asList(lineArr);
     		
     		lineList.stream()
-    					.filter( i -> lineList.contains( i ) )
+    					//.filter( i -> lineList.contains( i ) )
     					.filter( i -> !resultList.contains(i) )
     					.forEach( i -> resultList.add(i) );
     		
@@ -122,7 +125,8 @@ public class App_First
 		}
 
     	//--- 결과
-    	resultList.forEach( i -> System.out.print( i ));
+    	//resultList.forEach( i -> System.out.print( i ));
+    	System.out.println(resultList.toString());
     }
 
     //--- 주임_진급자_대상_유형_4) 두 개의 문자열의 구성요소가 동일한지 확인하는 메소드
