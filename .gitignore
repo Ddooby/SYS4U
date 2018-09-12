@@ -1,0 +1,4 @@
+### General ###
+*.class
+*.properties
+*/.DS_Store
