@@ -14,54 +14,50 @@ public class App_Second
     {
         System.out.println( "Hello World!" );
         
-        //--- 대리_진급자_대상_유형_1)_Vector/ArrayList/LinkedList의 차이 (Java5 이후로 Vector를 사용하지 말아야하는 이유)
+        //--- 대리_진급자_대상_유형_1)
         //print_Subjective_Question_1();
         
-        //--- 대리_진급자_대상_유형_3)_병합정렬
-        print_Subjective_Question_3();
+        //--- 대리_진급자_대상_유형_2)
+        //print_Subjective_Question_2();
         
-        //--- 대리_진급자_대상_유형_4) 이진 탐색 트리를 이용하여 이진 트리 내에 특정 int 값이 존재하는지 확인하는 public boolean exists(BinaryTree tree, int value) 메소드를 작성하라.
-        // 같은 폴더 내에 BinaryTree 및 BinaryTreeNode 코드 추가해놓았으므로 코드 내용 볼 것 (delete 와 success 함수는 생략함)
-        BinaryTree bt = new BinaryTree();
-        bt.insert(15);
-        bt.insert(23);
-        bt.insert(7);
-        bt.insert(5);
-        bt.insert(9);
-        bt.insert(17);
-        bt.insert(25);
-        System.out.println(exists(bt, 8));
-        System.out.println(exists(bt, 9));
+        //--- 대리_진급자_대상_유형_3)
+        //print_Subjective_Question_3();
         
-        //--- 대리_진급자_대상_유형_5)_Exception StackTrace분석
-        print_Exception_Subjective_Question();
+        //--- 대리_진급자_대상_유형_4)
+        //print_Subjective_Question_4();
         
-        //--- 대리_진급자_대상_유형_6) 스프링 웹 MVC를 이용하여 웹 어플리케이션을 개발할 때, "특별한 이유가 없으면" Controller / Service / DAO 에서 exception을 catche 하지 않을 것을 권장한다. 이와 관련하여 다음 세 가지에 대해 설명하라.
-        print_Subjective_Question_6();
+        //--- 대리_진급자_대상_유형_5)
+        //print_Subjective_Question_5();
         
-        //--- 대리_진급자_대상_유형_7)_printStackTrace출력 안되는 이유 
-        print_Subjective_Question_7();
+        //--- 대리_진급자_대상_유형_6)
+        //print_Subjective_Question_6();
         
-        //--- 대리_진급자_대상_유형_8) 데이터베이스 트랜잭션은 정의상 ACID 해야 한다. ACID 각각에 대해 설명하라.
-        print_Subjective_Question_8();
+        //--- 대리_진급자_대상_유형_7) 
+        //print_Subjective_Question_7();
         
-        //--- 대리_진급자_대상_유형_10) 스프링 프레임워크의 Transaction Manager와 Thread는 어떤 관계에 있는지 서술하라.
-        print_Subjective_Question_10();
+        //--- 대리_진급자_대상_유형_8)
+        //print_Subjective_Question_8();
         
-        //--- 대리_진급자_대상_유형_11)_ORACLE의 SEQUENCE에 대해 설명하라, CURRVAL과 NEXTVAL의 차이에 대해 설명, CURRVAL을 얻기 위한 제한 조건을 설명하라
-        print_Subjective_Question_11();
+        //--- 대리_진급자_대상_유형_9)
+        //print_Subjective_Question_9();
         
-        //--- 대리_진급자_대상_유형_12) ST 메뉴 테이블의 전체 계층 정보를 출력하는 쿼리를 작성하라.
-        print_Subjective_Question_12();
+        //--- 대리_진급자_대상_유형_10)
+        //print_Subjective_Question_10();
         
-        //--- 대리_진급자_대상_유형_13)_SUM OVER 분석함수를 사용한 쿼리작성
-        print_Subjective_Question_13();
+        //--- 대리_진급자_대상_유형_11)
+        //print_Subjective_Question_11();
         
-        //--- 대리_진급자_대상_유형_14) 2018 년도 주문실적을 월별로 출력하는 SQL을 작성하라. 단 주문일자 컬럼은 YYYYMMDD 의 VARCHAR2 형식이라고 가정한다.
-        print_Subjective_Question_14();
+        //--- 대리_진급자_대상_유형_12)
+        //print_Subjective_Question_12();
         
-        //--- 대리_진급자_대상_유형_15)_RANK 함수를 사용한 쿼리작성
-        print_Subjective_Question_15();
+        //--- 대리_진급자_대상_유형_13)
+        //print_Subjective_Question_13();
+        
+        //--- 대리_진급자_대상_유형_14)
+        //print_Subjective_Question_14();
+        
+        //--- 대리_진급자_대상_유형_15)
+        //print_Subjective_Question_15();
     }
     
     
@@ -71,7 +67,7 @@ public class App_Second
     
     
     
-    //--- 대리_진급자_대상_유형_1)_Vector/ArrayList/LinkedList의 차이 (Java5 이후로 Vector를 사용하지 말아야하는 이유)
+    //--- Vector/ArrayList/LinkedList의 차이 (Java5 이후로 Vector를 사용하지 말아야하는 이유)
     public static void print_Subjective_Question_1() {
     	
     	/*
@@ -98,6 +94,11 @@ public class App_Second
     	
     }
     
+    //--- ArrayList와 LinkedList 중 요소의 수정이 빈번히 일어나는경우 어떤 List가 유리한지 명시 & 이유
+    public static void print_Subjective_Question_2() {
+    	
+    }
+    
     //--- 대리_진급자_대상_유형_3)_병합정렬
     public static void print_Subjective_Question_3() {
     	List<Integer> intArr = new ArrayList<Integer>();
@@ -108,26 +109,42 @@ public class App_Second
     	intArr.add(8);
     	intArr.add(31);
     	intArr.add(22);
-    	
     	//MergeSort.mergeSort( intArr, 0 , intArr.size()-1 );
     	
     	int [] arr = { 69, 10, 30, 2, 16, 8, 31, 22 };
     	MergeSort.mergeSortTest( arr, 0 , arr.length-1 );
     }
     
-    //--- 대리_진급자_대상_유형_4) 이진 탐색 트리를 이용하여 이진 트리 내에 특정 int 값이 존재하는지 확인하는 public boolean exists(BinaryTree tree, int value) 메소드를 작성하라.
+    //--- 이진 탐색 트리를 이용하여 이진 트리 내에 특정 int 값이 존재하는지 확인하는 public boolean exists(BinaryTree tree, int value) 메소드를 작성하라.
+    public static void print_Subjective_Question_4() {
+    	 // 같은 폴더 내에 BinaryTree 및 BinaryTreeNode 코드 추가해놓았으므로 코드 내용 볼 것 (delete 와 success 함수는 생략함)
+        BinaryTree bt = new BinaryTree();
+        bt.insert(15);
+        bt.insert(23);
+        bt.insert(7);
+        bt.insert(5);
+        bt.insert(9);
+        bt.insert(17);
+        bt.insert(25);
+        
+        System.out.println(exists(bt, 8));
+        System.out.println(exists(bt, 9));
+    }
+    
+    //--- 이진 탐색 트리를 이용하여 이진 트리 내에 특정 int 값이 존재하는지 확인하는 public boolean exists(BinaryTree tree, int value) 메소드를 작성하라.
     public static boolean exists(BinaryTree tree, int value) {
     	return tree.find(value);
     }
 
-    //--- 대리_진급자_대상_유형_5)_Exception StackTrace분석
-    public static void print_Exception_Subjective_Question () {
+    //--- Exception StackTrace분석
+    public static void print_Subjective_Question_5 () {
     	/*
     		DAO에서 SQL 문 호출로 데이터를 조회할 때, Query 상에 명시된 students 컬럼을 찾을 수가 없어서
     	*/
     }
 
-    //--- 대리_진급자_대상_유형_6) 스프링 웹 MVC를 이용하여 웹 어플리케이션을 개발할 때, "특별한 이유가 없으면" Controller / Service / DAO 에서 exception을 catche 하지 않을 것을 권장한다. 이와 관련하여 다음 세 가지에 대해 설명하라.
+    //--- 스프링 웹 MVC를 이용하여 웹 어플리케이션을 개발할 때, "특별한 이유가 없으면" Controller / Service / DAO 에서 exception을 catche 하지 않을 것을 권장한다. 
+    //--- 이와 관련하여 다음 세 가지에 대해 설명하라.
     public static void print_Subjective_Question_6 () {
     	/*
 	        a. Exception 을 catch 하지 말 것을 권장하는 이유는 무엇인가? 
@@ -140,7 +157,7 @@ public class App_Second
     	*/
     }
     
-    //--- 대리_진급자_대상_유형_7)_printStackTrace출력 안되는 이유
+    //--- printStackTrace출력 안되는 이유
     public static void print_Subjective_Question_7 () {
     	/*
     		1) 이유 :
@@ -151,7 +168,8 @@ public class App_Second
     	*/
     }
     
-    //--- 대리_진급자_대상_유형_8) 데이터베이스 트랜잭션은 정의상 ACID 해야 한다. ACID 각각에 대해 설명하라.
+    //--- 데이터베이스 트랜잭션은 정의상 ACID 해야 한다. 
+    //--- ACID 각각에 대해 설명하라.
 	public static void print_Subjective_Question_8 () {
 		/* 
 	    	 원자성(Atomicity)은 트랜잭션과 관련된 작업들이 부분적으로 실행되다가 중단되지 않는 것을 보장하는 능력이다. 예를 들어, 자금 이체는 성공할 수도 실패할 수도 있지만 보내는 쪽에서 돈을 빼 오는 작업만 성공하고 받는 쪽에 돈을 넣는 작업을 실패해서는 안된다. 원자성은 이와 같이 중간 단계까지 실행되고 실패하는 일이 없도록 하는 것이다.
@@ -161,7 +179,7 @@ public class App_Second
 		 */
 	}
     
-	//--- 대리_진급자_대상_유형_9)_특정 비즈니스 로직에 대해 데이터베이스 트랜잭션 관리를 해야할 때 다음 정보들에 대해서 설명
+	//--- 특정 비즈니스 로직에 대해 데이터베이스 트랜잭션 관리를 해야할 때 다음 정보들에 대해서 설명
 	public static void print_Subjective_Question_9 () {
 		/*
 			Propagation :
@@ -184,7 +202,7 @@ public class App_Second
 		*/
 	}
     
-	//--- 대리_진급자_대상_유형_10) 스프링 프레임워크의 Transaction Manager와 Thread는 어떤 관계에 있는지 서술하라.
+	//--- 스프링 프레임워크의 Transaction Manager와 Thread는 어떤 관계에 있는지 서술하라.
 	public static void print_Subjective_Question_10 () {
 		/*
 			Transaction Management는 하나의 트렌젝션에 대해서 Transaction Context를 가지게 하고, 이 트렌젝션을 사용하는 Thread들간의 연관관계를 정의한다. 
@@ -192,7 +210,7 @@ public class App_Second
 		 */
 	}
 	
-	//--- 대리_진급자_대상_유형_11)_ORACLE의 SEQUENCE에 대해 설명하라, CURRVAL과 NEXTVAL의 차이에 대해 설명, CURRVAL을 얻기 위한 제한 조건을 설명하라 
+	//--- ORACLE의 SEQUENCE에 대해 설명하라, CURRVAL과 NEXTVAL의 차이에 대해 설명, CURRVAL을 얻기 위한 제한 조건을 설명하라 
 	public static void print_Subjective_Question_11 () {
 		/*
 			SEQUENCE 란 :
@@ -208,7 +226,7 @@ public class App_Second
 		*/
 	}
 
-	//--- 대리_진급자_대상_유형_12) ST 메뉴 테이블의 전체 계층 정보를 출력하는 쿼리를 작성하라.
+	//--- ST 메뉴 테이블의 전체 계층 정보를 출력하는 쿼리를 작성하라.
 	public static void print_Subjective_Question_12 () {
 		/*
 			select menu_id, menu_name, parent_menu_id, level 
@@ -218,14 +236,14 @@ public class App_Second
 		 */
 	}
   
-	//--- 대리_진급자_대상_유형_13)_SUM OVER 분석함수를 사용한 쿼리작성 
+	//--- SUM OVER 분석함수를 사용한 쿼리작성 
 	public static void print_Subjective_Question_13 () {
 		/*
 			(작업예정)
 		*/
 	}
 	
-	//--- 대리_진급자_대상_유형_14) 2018 년도 주문실적을 월별로 출력하는 SQL을 작성하라. 단 주문일자 컬럼은 YYYYMMDD 의 VARCHAR2 형식이라고 가정한다.
+	//--- 2018 년도 주문실적을 월별로 출력하는 SQL을 작성하라. 단 주문일자 컬럼은 YYYYMMDD 의 VARCHAR2 형식이라고 가정한다.
 	public static void print_Subjective_Question_14 () {
 		/*
 			select 
@@ -245,7 +263,7 @@ public class App_Second
 		 */
 	}
 	
-	//--- 대리_진급자_대상_유형_15)_RANK 함수를 사용한 쿼리작성 
+	//--- RANK 함수를 사용한 쿼리작성 
 	public static void print_Subjective_Question_15 () {
 		/*
 			(작업예정)

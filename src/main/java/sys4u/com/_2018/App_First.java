@@ -19,38 +19,38 @@ public class App_First
     {
         System.out.println( "Hello World!" );
         
-		//--- 주임_진급자_대상_유형_1)_중복 문자열 갯수 출력
-		printDuplicatedChars();
+		//--- 주임_진급자_대상_유형_1)
+		//print_Subjective_Question_1();
         
-		//--- 주임_진급자_대상_유형_2)_회문 체크 (거꾸로 뒤집어도 원래 문자열과 동일한지 체크)
-		System.out.println(isPalindrome("다시합시다") + "/" + isPalindrome("가나다라마"));
+		//--- 주임_진급자_대상_유형_2)
+		//print_Subjective_Question_2();
 		
-        //--- 주임_진급자_대상_유형_3)_중복 문자열 제거
-        printDuplicatedCharsDel();
+        //--- 주임_진급자_대상_유형_3)
+		//print_Subjective_Question_3();
         
-        //--- 주임_진급자_대상_유형_4)_두 개의 문자열의 구성요소가 동일한지 확인하는 메소드
-        System.out.println(isIdenticalElements("aabeddew","wedab") + "/" + isIdenticalElements("acb","ca"));
+        //--- 주임_진급자_대상_유형_4)
+		//print_Subjective_Question_4();
         
-        //---- 주임_진급자_대상_유형_5)_SQL문작성
-        printSQL_Query_1();
+        //---- 주임_진급자_대상_유형_5)
+		//print_Subjective_Question_5();
         
-        //--- 주임_진급자_대상_유형_6)_댓글을 10개 이상 작성한 사람의 목록을 출력하는 SQL
-        printSQL_Query_2();
+        //--- 주임_진급자_대상_유형_6)
+		//print_Subjective_Question_6();
        
-        //--- 주임_진급자_대상_유형_7)_Oracle_CHAR/ VARCHAR2의 차이점
-        printSQL_Query_3();
+        //--- 주임_진급자_대상_유형_7)
+		//print_Subjective_Question_7();
         
-        //--- 주임_진급자_대상_유형_8)_PRIMARY KEY 와 UNIQUE KEY 에 대해 설명하고 차이점을 기술하라
-        printSQL_Subjective_Question_2();
+        //--- 주임_진급자_대상_유형_8)
+		//print_Subjective_Question_8();
         
-        //--- 주임_진급자_대상_유형_9)_숫자를 총 10자리의 문자로 변환하려한다.
-        doZeroFill_function(145);
+        //--- 주임_진급자_대상_유형_9)
+		//print_Subjective_Question_9();
         
         //--- 주임_진급자_대상_유형_10) 숫자를 총 10 자리의 문자로 변환하려 한다. 남는 자릿수는 0 으로 채우려 할 때, 어떤 함수를 이용하면 되는가?
-        printSQL_Subjective_Question_3();
+		//print_Subjective_Question_10();
         
-        //--- 주임_진급자_대상_유형_12) 쿼리 작성 및 COUNT와 EXISTS 차이
-        printSQL_Subjective_Question_4();
+        //--- 주임_진급자_대상_유형_12)
+        //print_Subjective_Question_12();
         
     }
     
@@ -58,9 +58,9 @@ public class App_First
     
     
     
-    //--- 주임_진급자_대상_유형_1)_중복 문자열 갯수 출력
+    //--- 중복 문자열 갯수 출력
     //--- null 들어왔을때 exception 처리 필요
-    private static void printDuplicatedChars ( ) {
+    private static void print_Subjective_Question_1 ( ) {
     	
     	Map<String, Object> returnMap = new HashMap<String, Object>();
     	Map<String, Object> resultMap = new HashMap<String, Object>();
@@ -99,15 +99,22 @@ public class App_First
     	System.out.println("## "+ resultMap.toString());
     }
     
-    //--- 주임_진급자_대상_유형_2) 하나의 문자열이 회문인지 확인하는 메소드
+    
+    //--- 회문 체크 (거꾸로 뒤집어도 원래 문자열과 동일한지 체크)
+    //--- 하나의 문자열이 회문인지 확인하는 메소드
+    private static void print_Subjective_Question_2 () {
+    	System.out.println(isPalindrome("다시합시다") + "/" + isPalindrome("가나다라마"));
+    }
+    
     private static boolean isPalindrome(String value) {
     	String reversed = new StringBuffer(value).reverse().toString();
     	return reversed.equals(value);
     }
     
-    //--- 주임_진급자_대상_유형_3)_중복 문자열 제거
+    
+    //--- 중복 문자열 제거
     //--- null 들어왔을때 exception 처리 필요
-    private static void printDuplicatedCharsDel ( ) throws IllegalArgumentException {
+    private static void print_Subjective_Question_3 () throws IllegalArgumentException {
     	
     	String line = "가나다가나라가나마";
     	List<String> resultList = new ArrayList<String>();
@@ -131,16 +138,20 @@ public class App_First
     	//resultList.forEach( i -> System.out.print( i ));
     	System.out.println(resultList.toString());
     }
+    
+    //--- 두 개의 문자열의 구성요소가 동일한지 확인하는 메소드
+    private static void print_Subjective_Question_4 () {
+    	System.out.println(isIdenticalElements("aabeddew","wedab") + "/" + isIdenticalElements("acb","ca"));
+    }
 
-    //--- 주임_진급자_대상_유형_4) 두 개의 문자열의 구성요소가 동일한지 확인하는 메소드
     private static boolean isIdenticalElements(String a, String b) {
     	String aStream =  Arrays.asList(a.split("")).stream().distinct().sorted().collect(Collectors.joining());
     	String bStream = Arrays.asList(b.split("")).stream().distinct().sorted().collect(Collectors.joining());
     	return aStream.equals(bStream);
     }
     
-    //---- 주임_진급자_대상_유형_5)_SQL문작성
-	private static void printSQL_Query_1() {
+    //--- SQL문작성
+	private static void print_Subjective_Question_5() {
 	    	
     	String sql = "";    	
     	sql += "SELECT \n";
@@ -162,8 +173,8 @@ public class App_First
 		System.out.println(sql);
 	}
 	
-	//--- 주임_진급자_대상_유형_6) _댓글을 10개 이상 작성한 사람의 목록을 출력하는 SQL
-	private static void printSQL_Query_2() {
+	//--- 댓글을 10개 이상 작성한 사람의 목록을 출력하는 SQL
+	private static void print_Subjective_Question_6() {
 		 /*
 	        select m.name, c.comment_cnt from
 			(
@@ -178,8 +189,8 @@ public class App_First
         */
 	}
 	
-	//--- 주임_진급자_대상_유형_7)_Oracle
-	private static void printSQL_Query_3() {
+	//--- Oracle_CHAR/ VARCHAR2의 차이점
+	private static void print_Subjective_Question_7() {
 		
 		/*
 		 	<CHAR/ VARCHAR2의 차이점>
@@ -220,30 +231,35 @@ public class App_First
 		*/
 	}
 	
-	//--- 주임_진급자_대상_유형_8)_PRIMARY KEY 와 UNIQUE KEY 에 대해 설명하고 차이점을 기술하라
-	private static void printSQL_Subjective_Question_2() {
+	//--- PRIMARY KEY 와 UNIQUE KEY 에 대해 설명하고 차이점을 기술하라
+	private static void print_Subjective_Question_8() {
 		/* 
 			primary key(기본키)는 값이 중복되면 안되고 NULL값을 허용하지 않습니다. 테이블에 하나만 설정 가능합니다.
 			unique key(고유키)는 값이 중복되면 안되고 NULL값을 허용합니다.
 		*/
 	}
 
-	//--- 주임_진급자_대상_유형_9)_숫자를 총 10자리의 문자로 변환하려한다.
+	
+	//--- 숫자를 총 10자리의 문자로 변환하려한다.
+	private static void print_Subjective_Question_9() {
+		doZeroFill_function(145);
+	}
+	
 	public static void doZeroFill_function (int value) {
 		String formatValue = String.format( "%010d", value );
 		System.out.println("## formatValue::::"+ formatValue);
 	}
 	
 	//--- 주임_진급자_대상_유형_10) 숫자를 총 10 자리의 문자로 변환하려 한다. 남는 자릿수는 0 으로 채우려 할 때, 어떤 함수를 이용하면 되는가?
-	private static void printSQL_Subjective_Question_3() {
+	private static void print_Subjective_Question_10() {
 		 /*
 		    LPAD
 		    ex) lpad(145,10,0)
 	    */
 	}
 	
-	//--- 주임_진급자_대상_유형_12) 쿼리 작성 및 COUNT와 EXISTS 차이
-	private static void printSQL_Subjective_Question_4() {
+	//--- 쿼리 작성 및 COUNT와 EXISTS 차이
+	private static void print_Subjective_Question_12() {
 		/*
 	        select count(1) From cu_customer
 			where login_id='sys4u';
