@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 /**
@@ -59,41 +60,43 @@ public class App_First
     
     //--- 주임_진급자_대상_유형_1)_중복 문자열 갯수 출력
     //--- null 들어왔을때 exception 처리 필요
-    private static void printDuplicatedChars ( ) throws IllegalArgumentException {
+    private static void printDuplicatedChars ( ) {
     	
-    	String line = "가나다라가나가다마바";
     	Map<String, Object> returnMap = new HashMap<String, Object>();
     	Map<String, Object> resultMap = new HashMap<String, Object>();
-    	
-    	try {
-    		
-    		String lineArr[] = line.split("");
-        	List<String> resultList = Arrays.asList(lineArr);
-        	
-        	for ( String i : resultList ) {
-        		int cnt = 0;
-        		
-        		if ( line.contains(i) ) {
-        			cnt++;
 
-        			if ( returnMap.containsKey(i) ) {
-        				cnt = (int) returnMap.get(i) + 1;
-        				resultMap.put(i, cnt);
-        			}
-        			returnMap.put(i, cnt);
-        		}
-        	}
-        	
-        	//--- 결과
-        	//System.out.println("## "+ returnMap.toString());
-        	System.out.println("## "+ resultMap.toString());
-        	
-		} catch (NullPointerException e) {
-			// TODO: handle exception
-			System.out.println( e.getStackTrace() );
-		}
+    	String line ;
     	
+    	System.out.println("메세지를 입력하십시오 : ");
+    	//--- 문자입력을 인자로 Scanner 생성
+    	Scanner scan = new Scanner( System.in );
+		//--- 문자입력
+		line = scan.nextLine();
+		
+		if (line.length()==0)
+			throw new IllegalArgumentException("입력데이터가 없습니다.");
+		
+		System.out.println("입력메세지 : " + line );
+		
+		String lineArr[] = line.split("");
+    	List<String> resultList = Arrays.asList(lineArr);
     	
+    	for ( String i : resultList ) {
+    		int cnt = 0;
+    		
+    		if ( line.contains(i) ) {
+    			cnt++;
+
+    			if ( returnMap.containsKey(i) ) {
+    				cnt = (int) returnMap.get(i) + 1;
+    				resultMap.put(i, cnt);
+    			}
+    			returnMap.put(i, cnt);
+    		}
+    	}
+    	
+    	//--- 결과
+    	System.out.println("## "+ resultMap.toString());
     }
     
     //--- 주임_진급자_대상_유형_2) 하나의 문자열이 회문인지 확인하는 메소드

@@ -1,5 +1,8 @@
 package sys4u.com._2018;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Hello world!
  * 대리_진급자_대상
@@ -12,10 +15,10 @@ public class App_Second
         System.out.println( "Hello World!" );
         
         //--- 대리_진급자_대상_유형_1)_Vector/ArrayList/LinkedList의 차이 (Java5 이후로 Vector를 사용하지 말아야하는 이유)
-        print_Subjective_Question_1();
+        //print_Subjective_Question_1();
         
         //--- 대리_진급자_대상_유형_3)_병합정렬
-        
+        print_Subjective_Question_3();
         
         //--- 대리_진급자_대상_유형_4) 이진 탐색 트리를 이용하여 이진 트리 내에 특정 int 값이 존재하는지 확인하는 public boolean exists(BinaryTree tree, int value) 메소드를 작성하라.
         // 같은 폴더 내에 BinaryTree 및 BinaryTreeNode 코드 추가해놓았으므로 코드 내용 볼 것 (delete 와 success 함수는 생략함)
@@ -93,6 +96,23 @@ public class App_Second
 			<JAVA5 이후로 java.util.Vector를 사용하지 말아야하는 이유>
     	*/
     	
+    }
+    
+    //--- 대리_진급자_대상_유형_3)_병합정렬
+    public static void print_Subjective_Question_3() {
+    	List<Integer> intArr = new ArrayList<Integer>();
+    	intArr.add(69);
+    	intArr.add(10);
+    	intArr.add(30);
+    	intArr.add(2);
+    	intArr.add(8);
+    	intArr.add(31);
+    	intArr.add(22);
+    	
+    	//MergeSort.mergeSort( intArr, 0 , intArr.size()-1 );
+    	
+    	int [] arr = { 69, 10, 30, 2, 16, 8, 31, 22 };
+    	MergeSort.mergeSortTest( arr, 0 , arr.length-1 );
     }
     
     //--- 대리_진급자_대상_유형_4) 이진 탐색 트리를 이용하여 이진 트리 내에 특정 int 값이 존재하는지 확인하는 public boolean exists(BinaryTree tree, int value) 메소드를 작성하라.
