@@ -226,7 +226,12 @@ public class App_First
 			
 			
 			<TO_CHAR 함수나 TO_DATE 함수를 이용할 때 DATE_FORMAT을 입력하지 않은 경우 처리되는 방식>
-			작업중..
+			
+			TO_CHAR : DATE, NUMBER형을 문자타입으로 변환하는 함수입니다.
+			- FORMAT이 없는 경우 파라미터를 문자로 취급하고 출력
+			
+			TO_DATE : TO_DATE 함수는 CHAR, VARCHAR2형을 DATE 타입으로 변환합니다.
+			- FORMAT이 없는 경우 기본형식으로 출력(YY/MM/DD)
 			
 		*/
 	}

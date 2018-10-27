@@ -77,12 +77,14 @@ public class App_Second
 				- but, 하나의 스레드가 하나의 자원을 이용하는 경우에는 오히려 성능의 저하가 발생한다
 				- 공간이 모자랄때 모자란공간x2 만큼의 공간을 확보하기 때문에 메모리를 많이 잡아먹는다는 단점이 있다
 				※ 동기화 처리가 내부적으로 일어남으로 다른객체들 보다 무거움
+				
 			ArrayList :
 				- 인덱스를 가지고 있어서 검색에 용이하다
 				- 삽입/삭제를 하려면 중간이 이빨 나간 곳을 전부 한칸씩 땡기거나 뒤로 밀어야하기 때문에 삽입/삭제가 빈번한
 				데이터인 경우에는 부적합하다
 				- Vector와 달리 동기화를 보장해주지 못하고, 공간이 모자랄 때는 모자란 만큼만 공간을 확보한다
 				※ 내부적인 인덱스가 있기 때문에 검색이 빠르다, 데이터 추가/삭제시 성능이 떨어진다
+				
 			LinkedList : 
 				- 노드(데이터와 다음 노드로 연결시킬 주소지)들이 줄줄이 연결된 녀석이다
 				- 맨 마지막에 있는 녀석을 검색해야한다면 처음부터 끝까지 노드를 타고 줄줄이 이동해야해서 검색에는 적합X
@@ -90,13 +92,51 @@ public class App_Second
 				※ 추가/삭제시 유용하다, 검색시 처음자료부터 순차적으로 찾아야해서 성능이 떨어진다
 				
 			<JAVA5 이후로 java.util.Vector를 사용하지 말아야하는 이유>
+			
+				Vector와 이후에 등장하는 List객체의 다른점은 "동기화(synchronize)"처리에 있습니다.
+	
+				자바에서는 synchronized 라는 키워드를 만들어 두었습니다.
+				이 키워드를 사용하면 공통된 자원에 접근하는것은 [반드시 한번에 하나] 라는 조건이 붙게 됩니다.
+				
+				한 스레드(thread)가 공유자원에 작업을 마치기 전까지 다른 스레드(thread)가 공유자원에 접근할 수 없도록 약속한 것입니다.
+				이런 과정은 "동기화"라고 합니다.
+				
+				
+				동기화가 문제시 되는 경우는 어디까지나 "공유자원"과 "복수사용자"가 존재할 때 성립하는 것입니다.
+				한개의 자원을 하나의 스레드가 사용하는 경우에도 동기화를 고려해서 처리를 하게  되면, 오히려 성능의 저하를 가져오게 되는 문제가 발생합니다.
+				
+				Vector의 경우는 "무조건 동기화"이기 때문에 단일 스레드 처리시에서는 ArrayList나 LinkedList보다 성능이 떨어집니다.
+				
+				후에 혹시 동기화처리가 필요한 경우는 Vector를 이용하기 보다는 Collection을 이용하는것이 성능상 바람직하겠습니다.
     	*/
     	
     }
     
     //--- ArrayList와 LinkedList 중 요소의 수정이 빈번히 일어나는경우 어떤 List가 유리한지 명시 & 이유
     public static void print_Subjective_Question_2() {
-    	
+    	/*
+	    	메모리를 효율적으로 사용할 수 있는 LinkedList.
+	
+	    	배열의 정의는 같은 타입으로 자료형이 연속된 주소에 표현된 것이라 할 수 있다.
+	    	배열의 장점은 각각의 원소에 대해 index값을 이용하여 O(1)에 접근 할 수 있는 등 여러 장점이 있지만 자료의 이동 그리고 크기변화가 어렵다는 단점이 있다.
+	
+	    	LinkedList를 이용하면 크기변화가 어렵다는 단점을 극복할 수 있다.
+	
+	
+	    	LinkedList를 이용하면 메모리에 List에 자료가 무작위로 나열되어있지만 l포인터(pointer)가 다음에 나타날 자료를 가르키고 있으므로 멀리 떨어져있지만 한줄로 연결된다.
+	    	따라서 데이터구조들은 변수 뿐만 아니라 다음을 가리키는 포인터까지 갖고 있어야 한다.
+	
+	
+	    	<연결리스트의 최소단위, Node>
+	    	기본적으로 node는 데이터와 다음 노드를 가리키는 포인터로 구성되어있다.
+	
+	
+	    	단순연결리스트(Single LinkedList)는 노드에 다음 노드의 포인터정보만 가지고있다.
+	    	(1,2,3,4,5,6,7 의 노드가 있고, 5번 노드에 접근하고 싶은데 6번노드까지 넘어가버리면 5번 노드에는 접근할 수가 없다. 6번노드는 7번노드 접근 정보만 가지고있기때문에)
+	
+	    	이중연결리스트(Double LinkedList)는 노드에 Prev포인터를 추가해서 이전노드를 가리킨다.
+	    	원형연결리스트 혹은 순환연결리스트(Circular LinkedList) 는 마지막 노드가 첫번째 노드를 가리킨다.
+    	*/
     }
     
     //--- 대리_진급자_대상_유형_3)_병합정렬
@@ -233,13 +273,17 @@ public class App_Second
 			from st_menu s 
 			start with s.menu_id='ROOT_01'
 			connect by prior s.menu_id=s.parent_menu_id;
+			
+			----------------------------------------------------------------
+			prior
+			connect by prior 자식컬럼 = 부모컬럼 ==> 부모에서 자식으로 tree구성
 		 */
 	}
   
 	//--- SUM OVER 분석함수를 사용한 쿼리작성 
 	public static void print_Subjective_Question_13 () {
 		/*
-			(작업예정)
+			SUM (누적할 컬럼명) OVER(PARTITION BY (그룹화할 컬럼명) ORDER BY 정렬값)
 		*/
 	}
 	
@@ -260,13 +304,38 @@ public class App_Second
 			 ,nvl(sum(case when substr(주문일자,5,2)='11' then 금액 end),0) as "11월"
 			 ,nvl(sum(case when substr(주문일자,5,2)='12' then 금액 end),0) as "12월"
 			from ord_order;
+			
+			----------------------------------------------------------------
+			NVL( SUM( CASE WHEN ~ THEN ~ END ), 0 )
 		 */
 	}
 	
 	//--- RANK 함수를 사용한 쿼리작성 
 	public static void print_Subjective_Question_15 () {
 		/*
-			(작업예정)
+			SELECT 주문액 ,RANK() OVER (ORDER BY 주문액 DESC) AS 순위
+			FROM ORD_ORDER
+			WHERE 주문일자 LIKE '201801%' AND ROWNUM < =10
+			
+			
+			----------------------------------------------------------------
+			-- Total
+			select * from FILE$;
+			
+			-- ROW_NUMBER()
+			SELECT blocks , ROW_NUMBER() OVER( ORDER BY blocks DESC) as RANK 
+			from FILE$;
+			-- 1/2/3/4/5
+			
+			-- RANK()
+			SELECT blocks , RANK() OVER( ORDER BY blocks DESC) as RANK
+			from FILE$;
+			-- 1/2/3/3/5
+			
+			-- DENSE_RANK()
+			SELECT blocks , DENSE_RANK() OVER( ORDER BY blocks DESC) as RANK
+			from FILE$;
+			-- 1/2/3/3/4
 		*/
 	}
 }
