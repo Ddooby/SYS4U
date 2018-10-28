@@ -52,6 +52,9 @@ public class BinaryTree
 
     
     
+    
+    //--- by chjeong
+    
     // 최상위 root노드
     private BinaryTreeNode binaryTreeNode;
     
@@ -60,8 +63,8 @@ public class BinaryTree
 		BinaryTreeNode newNode = new BinaryTreeNode(i);
 		if ( binaryTreeNode == null ) {
 			binaryTreeNode = newNode;
-			
 			//--- ★ return 이 없으면 안된다.
+			//--- binaryTreeNode가 NULL 이면 i를 넣고 끝낸다.
 			return;
 		}
 		

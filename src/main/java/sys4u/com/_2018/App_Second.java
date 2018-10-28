@@ -21,10 +21,11 @@ public class App_Second
         //print_Subjective_Question_2();
         
         //--- 대리_진급자_대상_유형_3)
-        print_Subjective_Question_3();
+        //print_Subjective_Question_3();
+        print_Subjective_Question_3_1();
         
         //--- 대리_진급자_대상_유형_4)
-        print_Subjective_Question_4();
+        //print_Subjective_Question_4();
         
         //--- 대리_진급자_대상_유형_5)
         //print_Subjective_Question_5();
@@ -141,6 +142,8 @@ public class App_Second
     
     //--- 대리_진급자_대상_유형_3)_병합정렬
     public static void print_Subjective_Question_3() {
+    	System.out.println("# print_Subjective_Question_3 debug");
+    	
     	List<Integer> intArr = new ArrayList<Integer>();
     	intArr.add(69);
     	intArr.add(10);
@@ -154,10 +157,19 @@ public class App_Second
     	int [] arr = { 69, 10, 30, 2, 16, 8, 31, 22 };
     	MergeSort.mergeSortTest( arr, 0 , arr.length-1 );
     	System.out.print("# mergeSort result arr = ");
-    	for ( int i = 0; i < arr.length; i++ ) {
-			System.out.print(arr[i] + "  ");
-		}
-		System.out.println();
+    	
+    	MergeSort.printArr(arr);
+    }
+    
+    //--- 병합정렬 다른방법
+    public static void print_Subjective_Question_3_1() {
+    	System.out.println("# print_Subjective_Question_3_1 debug");
+    	
+    	int [] arr = { 69, 10, 30, 2, 16, 8, 31, 22 };
+    	MergeSort.mergeSort(arr);
+    	System.out.print("# mergeSort result arr = ");
+    	
+    	MergeSort.printArr(arr);
     }
     
     //--- 이진 탐색 트리를 이용하여 이진 트리 내에 특정 int 값이 존재하는지 확인하는 public boolean exists(BinaryTree tree, int value) 메소드를 작성하라.
@@ -176,11 +188,12 @@ public class App_Second
         //System.out.println(exists(bt, 9));
         
         
+        //--- by chjeong
         BinaryTree binaryTree = new BinaryTree();
         binaryTree.insertBinaryTree(30);
         binaryTree.insertBinaryTree(23);
         binaryTree.insertBinaryTree(5);
-        //System.out.println( "# binaryTree result(30) : " + binaryTree.findBinaryTree(30));
+        System.out.println( "# binaryTree result(30) : " + binaryTree.findBinaryTree(30));
         System.out.println( "# binaryTree result(40) : " + binaryTree.findBinaryTree(40));
     }
     
