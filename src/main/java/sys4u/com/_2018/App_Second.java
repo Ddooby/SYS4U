@@ -21,10 +21,10 @@ public class App_Second
         //print_Subjective_Question_2();
         
         //--- 대리_진급자_대상_유형_3)
-        //print_Subjective_Question_3();
+        print_Subjective_Question_3();
         
         //--- 대리_진급자_대상_유형_4)
-        //print_Subjective_Question_4();
+        print_Subjective_Question_4();
         
         //--- 대리_진급자_대상_유형_5)
         //print_Subjective_Question_5();
@@ -153,6 +153,11 @@ public class App_Second
     	
     	int [] arr = { 69, 10, 30, 2, 16, 8, 31, 22 };
     	MergeSort.mergeSortTest( arr, 0 , arr.length-1 );
+    	System.out.print("# mergeSort result arr = ");
+    	for ( int i = 0; i < arr.length; i++ ) {
+			System.out.print(arr[i] + "  ");
+		}
+		System.out.println();
     }
     
     //--- 이진 탐색 트리를 이용하여 이진 트리 내에 특정 int 값이 존재하는지 확인하는 public boolean exists(BinaryTree tree, int value) 메소드를 작성하라.
@@ -167,8 +172,16 @@ public class App_Second
         bt.insert(17);
         bt.insert(25);
         
-        System.out.println(exists(bt, 8));
-        System.out.println(exists(bt, 9));
+        //System.out.println(exists(bt, 8));
+        //System.out.println(exists(bt, 9));
+        
+        
+        BinaryTree binaryTree = new BinaryTree();
+        binaryTree.insertBinaryTree(30);
+        binaryTree.insertBinaryTree(23);
+        binaryTree.insertBinaryTree(5);
+        //System.out.println( "# binaryTree result(30) : " + binaryTree.findBinaryTree(30));
+        System.out.println( "# binaryTree result(40) : " + binaryTree.findBinaryTree(40));
     }
     
     //--- 이진 탐색 트리를 이용하여 이진 트리 내에 특정 int 값이 존재하는지 확인하는 public boolean exists(BinaryTree tree, int value) 메소드를 작성하라.
@@ -212,10 +225,23 @@ public class App_Second
     //--- ACID 각각에 대해 설명하라.
 	public static void print_Subjective_Question_8 () {
 		/* 
-	    	 원자성(Atomicity)은 트랜잭션과 관련된 작업들이 부분적으로 실행되다가 중단되지 않는 것을 보장하는 능력이다. 예를 들어, 자금 이체는 성공할 수도 실패할 수도 있지만 보내는 쪽에서 돈을 빼 오는 작업만 성공하고 받는 쪽에 돈을 넣는 작업을 실패해서는 안된다. 원자성은 이와 같이 중간 단계까지 실행되고 실패하는 일이 없도록 하는 것이다.
-		    일관성(Consistency)은 트랜잭션이 실행을 성공적으로 완료하면 언제나 일관성 있는 데이터베이스 상태로 유지하는 것을 의미한다. 무결성 제약이 모든 계좌는 잔고가 있어야 한다면 이를 위반하는 트랜잭션은 중단된다.
-		    고립성(Isolation)은 트랜잭션을 수행 시 다른 트랜잭션의 연산 작업이 끼어들지 못하도록 보장하는 것을 의미한다. 이것은 트랜잭션 밖에 있는 어떤 연산도 중간 단계의 데이터를 볼 수 없음을 의미한다. 은행 관리자는 이체 작업을 하는 도중에 쿼리를 실행하더라도 특정 계좌간 이체하는 양 쪽을 볼 수 없다. 공식적으로 고립성은 트랜잭션 실행내역은 연속적이어야 함을 의미한다. 성능관련 이유로 인해 이 특성은 가장 유연성 있는 제약 조건이다. 자세한 내용은 관련 문서를 참조해야 한다.
-		    지속성(Durability)은 성공적으로 수행된 트랜잭션은 영원히 반영되어야 함을 의미한다. 시스템 문제, DB 일관성 체크 등을 하더라도 유지되어야 함을 의미한다. 전형적으로 모든 트랜잭션은 로그로 남고 시스템 장애 발생 전 상태로 되돌릴 수 있다. 트랜잭션은 로그에 모든 것이 저장된 후에만 commit 상태로 간주될 수 있다.
+	    	
+	    	원자성(Atomicity)은 트랜잭션과 관련된 작업들이 부분적으로 실행되다가 중단되지 않는 것을 보장하는 능력이다. 
+	    	예를 들어, 자금 이체는 성공할 수도 실패할 수도 있지만 보내는 쪽에서 돈을 빼 오는 작업만 성공하고 받는 쪽에 돈을 넣는 작업을 실패해서는 안된다. 
+	    	원자성은 이와 같이 중간 단계까지 실행되고 실패하는 일이 없도록 하는 것이다.
+	    	
+		    일관성(Consistency)은 트랜잭션이 실행을 성공적으로 완료하면 언제나 일관성 있는 데이터베이스 상태로 유지하는 것을 의미한다. 
+		    무결성 제약이 모든 계좌는 잔고가 있어야 한다면 이를 위반하는 트랜잭션은 중단된다.
+		    
+		    고립성(Isolation)은 트랜잭션을 수행 시 다른 트랜잭션의 연산 작업이 끼어들지 못하도록 보장하는 것을 의미한다. 
+		    이것은 트랜잭션 밖에 있는 어떤 연산도 중간 단계의 데이터를 볼 수 없음을 의미한다. 
+		    은행 관리자는 이체 작업을 하는 도중에 쿼리를 실행하더라도 특정 계좌간 이체하는 양 쪽을 볼 수 없다. 
+		    공식적으로 고립성은 트랜잭션 실행내역은 연속적이어야 함을 의미한다. 성능관련 이유로 인해 이 특성은 가장 유연성 있는 제약 조건이다. 자세한 내용은 관련 문서를 참조해야 한다.
+		    
+		    지속성(Durability)은 성공적으로 수행된 트랜잭션은 영원히 반영되어야 함을 의미한다. 
+		    시스템 문제, DB 일관성 체크 등을 하더라도 유지되어야 함을 의미한다. 전형적으로 모든 트랜잭션은 로그로 남고 시스템 장애 발생 전 상태로 되돌릴 수 있다. 
+		    트랜잭션은 로그에 모든 것이 저장된 후에만 commit 상태로 간주될 수 있다.
+		    
 		 */
 	}
     

@@ -17,8 +17,11 @@ public class MergeSort {
 		int middle;
 		if ( m < n ) {
 			middle = (m+n) / 2;
+			//System.out.println("## middle:"+ middle);
+			
 			mergeSortTest( arr, m, middle );
 			mergeSortTest( arr, middle + 1, n );
+			
 			mergeTest( arr, m, middle, n );
 		}
 	}
@@ -54,7 +57,7 @@ public class MergeSort {
 		
 		//System.out.println(" 합병정렬 >> ");
 		//--- 선택정렬
-		SelectionSort.printArr(arr);
+		//SelectionSort.printArr(arr);
 	}
 	
 		

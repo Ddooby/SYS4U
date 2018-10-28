@@ -65,14 +65,10 @@ public class App_First
     	Map<String, Object> returnMap = new HashMap<String, Object>();
     	Map<String, Object> resultMap = new HashMap<String, Object>();
 
-    	String line ;
-    	
-    	System.out.println("메세지를 입력하십시오 : ");
     	//--- 문자입력을 인자로 Scanner 생성
     	Scanner scan = new Scanner( System.in );
 		//--- 문자입력
-		line = scan.nextLine();
-		
+    	String line = scan.nextLine();
 		if (line.length()==0)
 			throw new IllegalArgumentException("입력데이터가 없습니다.");
 		
@@ -80,13 +76,11 @@ public class App_First
 		
 		String lineArr[] = line.split("");
     	List<String> resultList = Arrays.asList(lineArr);
-    	
     	for ( String i : resultList ) {
     		int cnt = 0;
     		
     		if ( line.contains(i) ) {
     			cnt++;
-
     			if ( returnMap.containsKey(i) ) {
     				cnt = (int) returnMap.get(i) + 1;
     				resultMap.put(i, cnt);
@@ -141,7 +135,55 @@ public class App_First
     
     //--- 두 개의 문자열의 구성요소가 동일한지 확인하는 메소드
     private static void print_Subjective_Question_4 () {
-    	System.out.println(isIdenticalElements("aabeddew","wedab") + "/" + isIdenticalElements("acb","ca"));
+    	//System.out.println(isIdenticalElements("aabeddew","wedab") + "/" + isIdenticalElements("acb","ca"));
+
+    	System.out.println("# 첫번째 문자열을 입력하세요 : ");
+    	@SuppressWarnings("resource")
+		Scanner scan1 = new Scanner(System.in);
+    	String inputText1 = scan1.nextLine().trim();
+    	
+    	System.out.println("# 두번째 문자열을 입력하세요 : ");
+    	@SuppressWarnings("resource")
+		Scanner scan2 = new Scanner(System.in);
+    	String inputText2 = scan2.nextLine().trim();
+    	
+    	if ( inputText1.length() == 0 || inputText2.length() == 0 ) {
+    		throw new IllegalArgumentException("입력데이터가 없습니다.");
+    	}
+    	
+    	System.out.println("# 결과 : " + isIdenticalElements( inputText1.trim(), inputText2.trim() ));
+    	
+    	//--- distinct()
+    	//--- 중복제거 : abccde -> abcde
+    	
+    	//--- sorted()
+    	//--- 정렬메서드 : edbca -> abcde
+    	
+    	//--- collect()
+    	//--- 스트림을 다른 형식으로 변환한다.
+    	//--- collect연산으로 파이프라인을 처리해서 결과를 반환한다.
+    	
+    	//--- Collectors.joining()
+    	//--- 자바에서 뭔가를 출력할 때, 구분자를 함께 출력하는 format 지정 
+    	//--- ex ) Collectors.joining(",")
+    	
+    	
+//    	String inputText1 = "abccde";
+//    	List<String> text1List = Arrays.asList(inputText1.split(""));
+//    	String streamTxt1 = text1List.stream().distinct().sorted().collect(Collectors.joining());
+//    	String streamTxt11 = text1List.stream().distinct().collect(Collectors.joining());
+//    	System.out.println("# streamTxt1 = "+ streamTxt1);
+//    	System.out.println("# streamTxt11 = "+ streamTxt11);
+//
+//    	String inputText2 = "edbca";
+//    	List<String> text2List = Arrays.asList(inputText2.split(""));
+//    	String streamTxt2 = text2List.stream().distinct().sorted().collect(Collectors.joining());
+//    	String streamTxt22 = text2List.stream().distinct().collect(Collectors.joining());
+//    	System.out.println("# streamTxt2 = "+ streamTxt2);
+//    	System.out.println("# streamTxt22 = "+ streamTxt22);
+//    	
+//    	System.out.println("## "+ streamTxt1.equals(streamTxt2));
+//    	System.out.println("## "+ streamTxt11.equals(streamTxt22));
     }
 
     private static boolean isIdenticalElements(String a, String b) {
@@ -152,31 +194,33 @@ public class App_First
     
     //--- SQL문작성
 	private static void print_Subjective_Question_5() {
-	    	
-    	String sql = "";    	
-    	sql += "SELECT \n";
-    	sql += "		Board.uid,\n";
-    	sql += "		Board.title,\n";
-    	sql += "		Board.contents,\n";
-    	sql += "		Board.created_by,\n";
-    	sql += "		Board.created_date,\n";
-    	sql += "		Comment.uid,\n";
-    	sql += "		Comment.comment,\n";
-    	sql += "		Comment.creadted_by,\n";
-    	sql += "		Comment.created_date,\n";
-    	sql += "FROM \n";
-    	sql += "		Board b\n";
-    	sql += "		OUTER JOIN Comment c ON ( b.uid = c.board_uid )\n";
-    	sql += "WHERE \n";
-    	sql += "		b.uid = 1\n";    	
-
-		System.out.println(sql);
+	    /*	
+	    	String sql = "";    	
+	    	sql += "SELECT \n";
+	    	sql += "		Board.uid,\n";
+	    	sql += "		Board.title,\n";
+	    	sql += "		Board.contents,\n";
+	    	sql += "		Board.created_by,\n";
+	    	sql += "		Board.created_date,\n";
+	    	sql += "		Comment.uid,\n";
+	    	sql += "		Comment.comment,\n";
+	    	sql += "		Comment.creadted_by,\n";
+	    	sql += "		Comment.created_date,\n";
+	    	sql += "FROM \n";
+	    	sql += "		Board b\n";
+	    	sql += "		OUTER JOIN Comment c ON ( b.uid = c.board_uid )\n";
+	    	sql += "WHERE \n";
+	    	sql += "		b.uid = 1\n";    	
+	
+			System.out.println(sql);
+		*/
 	}
 	
 	//--- 댓글을 10개 이상 작성한 사람의 목록을 출력하는 SQL
 	private static void print_Subjective_Question_6() {
 		 /*
-	        select m.name, c.comment_cnt from
+	        select m.name, c.comment_cnt 
+	        from
 			(
 			  select created_by
 			       , count(1) as comment_cnt
@@ -241,6 +285,9 @@ public class App_First
 		/* 
 			primary key(기본키)는 값이 중복되면 안되고 NULL값을 허용하지 않습니다. 테이블에 하나만 설정 가능합니다.
 			unique key(고유키)는 값이 중복되면 안되고 NULL값을 허용합니다.
+			
+			--------------------------------------------------------------------------------------------
+			하나의 테이블 내에는 적어도 Primary Key 또는 Unique Index 하나는 있어야 한다.
 		*/
 	}
 
@@ -288,6 +335,12 @@ public class App_First
 			단) 검색시에 ArrayList에 비해 불리하다 / 메모리를 많이 잡는다 . (데이터와 포인터도 가지고 있어야 하기 때문이다.)
 			장) 데이터의 추가/삭제 시에 불필요한 나머지 데이터의 복사가 이루어지지 않아 데이터의 추가/삭제 시에 유리하다.
 			출처: http://dordong.tistory.com/5 [Dongdor]
+        
+        	
+        	--------------------------------------------------------------------------------------------
+        	COUNT는 모든 레코드 중 관련된 것을 필터링한 후 COUNT함수를 수행하지만, EXISTS는 필터링 시 하나라도 레코드가 있음을 인지했을때 반환한다.
+        	테이블의 전체 레코드 수가 작을 때는 구별이 안되지만, 많을 때는 EXISTS가 효과적이다.
+        
          */
 	}
     
